@@ -1,7 +1,7 @@
-import { generateMockBuildings } from "../data/building";
+import { generateMockBuildings } from '@mock/data/building';
 
 const buildingsResponse = {
-  uri: "/buildings",
+  uri: '/buildings',
   handleResponse: () => {
     return {
       data: generateMockBuildings(),

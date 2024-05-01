@@ -1,4 +1,4 @@
-import { generateMockChartData } from '../data/chart';
+import { generateMockChartData } from '@mock/data/chart';
 
 const chartResponse = {
   uri: '/chart/:id',
