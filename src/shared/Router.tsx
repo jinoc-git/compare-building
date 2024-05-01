@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Compare from '@app/pages/Compare';
-import Main from '@app/pages/Main';
+import Compare from 'app/pages/Compare';
+import Main from 'app/pages/Main';
 
 const Router = () => {
   return (

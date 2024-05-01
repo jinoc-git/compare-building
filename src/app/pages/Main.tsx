@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MockSamples from '@components/MockSamples';
+import MockSamples from 'components/MockSamples';
 
 const Main = () => {
   return (
