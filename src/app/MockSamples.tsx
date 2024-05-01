@@ -1,14 +1,14 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const MockSamples = () => {
   useEffect(() => {
-    fetch("/buildings")
+    fetch('/buildings')
       .then((res) => res.json())
       .then(console.log);
-    fetch("/building/KR0001")
+    fetch('/building/KR0001')
       .then((res) => res.json())
       .then(console.log);
-    fetch("/chart/KR0001")
+    fetch('/chart/KR0001')
       .then((res) => res.json())
       .then(console.log);
   }, []);

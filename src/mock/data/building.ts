@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker/locale/ko";
+import { faker } from '@faker-js/faker/locale/ko';
 
 const generateMockBuildings = () => {
   const buildings = Array.from(Array(100), (_, index) => {
@@ -26,20 +26,20 @@ const generateMockBuildings = () => {
   return buildings;
 };
 
-const generateMockBuildingDetail = (id) => {
+const generateMockBuildingDetail = (id: string) => {
   const building = {
     id,
     address: `${faker.location.city()} ${faker.location.streetAddress()} ${faker.location.secondaryAddress()}`,
     image: faker.image.urlLoremFlickr({
-      category: "city",
+      category: 'city',
       width: 400,
       height: 400,
     }),
     landPurpose: faker.helpers.arrayElement([
-      "일반상업지역",
-      "중심상업지역",
-      "근린상업지역",
-      "유통상업지역",
+      '일반상업지역',
+      '중심상업지역',
+      '근린상업지역',
+      '유통상업지역',
     ]),
     totalArea: faker.number.int({ min: 1000, max: 50000000 }), // 연면적
     bcRat: faker.number.float({ min: 20, max: 100 }), // 전용률
@@ -56,9 +56,9 @@ const generateMockBuildingDetail = (id) => {
     architectureArea: faker.number.int({ min: 1000, max: 50000000 }), // 건축면적
     vlRat: faker.number.float({ min: 20, max: 100 }), // 용적율
     mainPurpose: faker.helpers.arrayElement([
-      "업무시설",
-      "생활시설",
-      "공공업무시설",
+      '업무시설',
+      '생활시설',
+      '공공업무시설',
     ]),
     deposit: faker.number.int({ min: 1000000, max: 100000000 }), // 보증금
     rentFee: faker.number.int({ min: 1000000, max: 50000000 }), // 임대료

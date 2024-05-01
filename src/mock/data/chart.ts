@@ -1,6 +1,6 @@
-import { faker } from "@faker-js/faker/locale/ko";
+import { faker } from '@faker-js/faker/locale/ko';
 
-const generateMockChartData = (id) => {
+const generateMockChartData = (id: string) => {
   const chart = {
     id,
     rentFee: [

@@ -1,11 +1,11 @@
-import { generateMockChartData } from "../data/chart";
+import { generateMockChartData } from '../data/chart';
 
 const chartResponse = {
-  uri: "/chart/:id",
-  handleResponse: (req) => {
+  uri: '/chart/:id',
+  handleResponse: (req: any) => {
     const id = req.params.id;
 
-    if (!id) throw new Error("Invalid id");
+    if (!id) throw new Error('Invalid id');
 
     return {
       data: generateMockChartData(id),

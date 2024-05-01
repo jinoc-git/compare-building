@@ -1,4 +1,4 @@
-import MockSamples from "./MockSamples";
+import MockSamples from './MockSamples';
 
 function App() {
   return (

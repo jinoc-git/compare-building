@@ -1,11 +1,11 @@
-import { generateMockBuildingDetail } from "../data/building";
+import { generateMockBuildingDetail } from '../data/building';
 
 const buildingDetailResponse = {
-  uri: "/building/:id",
-  handleResponse: (req) => {
+  uri: '/building/:id',
+  handleResponse: (req: any) => {
     const id = req.params.id;
 
-    if (!id) throw new Error("Invalid id");
+    if (!id) throw new Error('Invalid id');
 
     return {
       data: generateMockBuildingDetail(id),
