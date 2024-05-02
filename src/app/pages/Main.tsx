@@ -1,13 +1,14 @@
 import React from 'react';
 
 import RootLayout from 'components/common/layouts/RootLayout';
-import MockSamples from 'components/MockSamples';
+import BuildingInfo from 'components/main/buildingInfo/BuildingInfo';
+import BuildingList from 'components/main/buildingList/BuildingList';
 
 const Main = () => {
   return (
     <RootLayout>
-      <div>알스퀘어 Frontend 과제입니다.</div>
-      <MockSamples />
+      <BuildingList />
+      <BuildingInfo />
     </RootLayout>
   );
 };

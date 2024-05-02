@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './app/App';
-import enableMock from './mock';
+import App from 'app/App';
+
+import enableMirageMock from './mock';
 
 import './global.css';
 
-enableMock();
+enableMirageMock();
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(<App />);

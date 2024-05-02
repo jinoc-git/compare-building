@@ -9,8 +9,11 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 flex items-center w-full h-[48px] px-3 border border-black">
-      <h1 onClick={onClickLogo} className="text-xl font-bold cursor-pointer">
+    <header className="fixed top-0 left-0 flex items-center w-full h-[48px] px-5 border-b bg-white z-10">
+      <h1
+        onClick={onClickLogo}
+        className="scroll-m-20 pb-2 text-xl font-semibold tracking-tight first:mt-0 cursor-pointer"
+      >
         RSQURE
       </h1>
     </header>
