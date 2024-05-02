@@ -13,7 +13,7 @@ const MockSamples = () => {
       .then(console.log);
   }, []);
 
-  return <div> (MockSample) console.log 를 확인하세요. </div>;
+  return null;
 };
 
 export default MockSamples;
