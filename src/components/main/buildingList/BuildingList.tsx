@@ -3,6 +3,9 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchBuildings } from 'api/building';
+import { Table, TableBody } from 'components/ui/table';
+
+import ListHeader from './listHeader/ListHeader';
 
 const BuildingList = () => {
   const { data } = useQuery({
@@ -10,11 +13,14 @@ const BuildingList = () => {
     queryFn: fetchBuildings,
   });
 
-  console.log(data);
+  console.log(data?.[0]);
 
   return (
     <section>
-      <div>BuildingList</div>
+      <Table>
+        <ListHeader />
+        <TableBody></TableBody>
+      </Table>
     </section>
   );
 };
