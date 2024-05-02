@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 flex items-center w-full h-[48px] px-3 border border-black">
+    <header className="fixed top-0 left-0 flex items-center w-full h-[48px] px-5 border border-black">
       <h1 onClick={onClickLogo} className="text-xl font-bold cursor-pointer">
         RSQURE
       </h1>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { TableCell, TableRow } from 'components/ui/table';
+import { addCommas, changeAmountFormat } from 'lib/changeFormat';
 
 import type { BuildingType } from 'types/building.type';
 
@@ -30,15 +31,15 @@ const ListItem = ({ data }: Props) => {
       <TableCell>{address}</TableCell>
       <TableCell>{construct.year}</TableCell>
       <TableCell>{construct.quarter}</TableCell>
-      <TableCell>{totalArea}평</TableCell>
-      <TableCell>{nla}</TableCell>
+      <TableCell>{addCommas(totalArea)}평</TableCell>
+      <TableCell>{nla.toFixed(2)}%</TableCell>
       <TableCell>
-        지하 {floor.under} / 지상 {floor.above}
+        지하 {floor.under}층 / 지상 {floor.above}층
       </TableCell>
       <TableCell>{deposit}</TableCell>
-      <TableCell>{rentFee}</TableCell>
+      <TableCell>{changeAmountFormat(rentFee)}</TableCell>
       <TableCell>{maintenanceFee}</TableCell>
-      <TableCell>{vacancyRate}</TableCell>
+      <TableCell>{vacancyRate.toFixed(2)}%</TableCell>
     </TableRow>
   );
 };

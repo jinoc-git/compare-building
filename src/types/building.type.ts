@@ -18,6 +18,23 @@ export interface BuildingType {
   vacancyRate: number;
 }
 
+export interface TransformedBuildingType {
+  id: string;
+  address: string;
+  buildingName: string;
+  construct: {
+    year: number;
+    quarter: string;
+  };
+  totalArea: string;
+  nla: string;
+  floor: string;
+  deposit: number;
+  rentFee: string;
+  maintenanceFee: number;
+  vacancyRate: string;
+}
+
 export interface BuildingDetailType {
   id: string;
   address: string;
