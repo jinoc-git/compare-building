@@ -8,6 +8,7 @@ const ListHeader = () => {
       <TableRow className="bg-[#F3F4F6]">
         <TableHead className="w-[32px]"></TableHead>
         <TableHead>건물명</TableHead>
+        <TableHead>주소</TableHead>
         <TableHead>준공일(연도)</TableHead>
         <TableHead>준공일(분기)</TableHead>
         <TableHead>연면적</TableHead>

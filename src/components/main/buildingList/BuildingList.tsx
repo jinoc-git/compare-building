@@ -6,6 +6,7 @@ import { fetchBuildings } from 'api/building';
 import { Table, TableBody } from 'components/ui/table';
 
 import ListHeader from './listHeader/ListHeader';
+import ListItem from './listItem/ListItem';
 
 const BuildingList = () => {
   const { data } = useQuery({
@@ -19,7 +20,11 @@ const BuildingList = () => {
     <section>
       <Table>
         <ListHeader />
-        <TableBody></TableBody>
+        <TableBody>
+          {data?.map((building) => {
+            return <ListItem key={building.id} data={building} />;
+          })}
+        </TableBody>
       </Table>
     </section>
   );
