@@ -35,20 +35,20 @@ const DataTable = <TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     onRowSelectionChange: setRowSelection,
-    state: {
-      rowSelection,
-    },
+    state: { rowSelection },
     enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
   // console.log(table.getSelectedRowModel().rows); 체크한 row 데이터
+
+  const onClickRow = () => {};
 
   return (
     <ScrollArea className="h-[353px] overflow-auto">
       <Table className=" min-w-[1400px]">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow key={headerGroup.id} onClick={onClickRow}>
               {headerGroup.headers.map((header, idx) => {
                 const className =
                   idx === 0
