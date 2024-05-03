@@ -29,7 +29,7 @@ export interface TransformedBuildingType {
   totalArea: string;
   nla: string;
   floor: string;
-  deposit: number;
+  deposit: string;
   rentFee: string;
   maintenanceFee: string;
   vacancyRate: string;

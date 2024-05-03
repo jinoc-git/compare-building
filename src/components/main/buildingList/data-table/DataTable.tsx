@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
-import { ScrollArea } from 'components/ui/scroll-area';
+import { ScrollArea, ScrollBar } from 'components/ui/scroll-area';
 import {
   Table,
   TableBody,
@@ -32,9 +32,11 @@ const DataTable = <TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  // console.log(table.getSelectedRowModel().rows); 체크한 row 데이터
+
   return (
     <ScrollArea className="h-[353px] overflow-auto">
-      <Table>
+      <Table className=" min-w-[1400px]">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -46,9 +48,11 @@ const DataTable = <TData, TValue>({
                       ? 'w-[80px]'
                       : idx === 7
                         ? 'w-[160px]'
-                        : idx === 9
-                          ? 'w-[120px]'
-                          : '';
+                        : idx === 8
+                          ? 'w-[140px]'
+                          : idx === 9
+                            ? 'w-[140px]'
+                            : '';
                 return (
                   <TableHead key={header.id} className={className}>
                     {header.isPlaceholder
@@ -86,6 +90,7 @@ const DataTable = <TData, TValue>({
           )}
         </TableBody>
       </Table>
+      <ScrollBar orientation="horizontal" />
     </ScrollArea>
   );
 };
