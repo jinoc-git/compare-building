@@ -32,7 +32,7 @@ const DataTable = ({
 }: DataTableProps<TransformedBuildingType, any>) => {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
-  const getBuildingDetailByRow = useBuildingDetail().getBuildingDetailByRow;
+  const { getBuildingDetailByRow } = useBuildingDetail();
 
   const table = useReactTable<TransformedBuildingType>({
     data,

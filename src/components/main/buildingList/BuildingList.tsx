@@ -34,7 +34,6 @@ const BuildingList = () => {
   });
 
   if (!data) return null;
-  console.log(data[0]);
 
   return (
     <section>

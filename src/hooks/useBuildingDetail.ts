@@ -8,7 +8,7 @@ import { useBuildingStoreActions } from 'store/buildingStore';
 import type { TransformedBuildingType } from 'types/building.type';
 
 const useBuildingDetail = () => {
-  const { setBuildingDetail } = useBuildingStoreActions();
+  const { setBuildingDetail, setIsLoading } = useBuildingStoreActions();
 
   const [buildingId, setBuildingId] = useState('');
   const [rowData, setRowData] = useState<TransformedBuildingType | null>(null);
@@ -21,18 +21,17 @@ const useBuildingDetail = () => {
     enabled: buildingId !== '',
   });
 
-  const getBuildingDetailByRow = async (row: TransformedBuildingType) => {
+  const getBuildingDetailByRow = (row: TransformedBuildingType) => {
     setBuildingId(row.id);
     setRowData(row);
   };
 
-  console.log(data);
-
   useEffect(() => {
+    if (isLoading) setIsLoading(true);
     if (data && rowData) setBuildingDetail(data, rowData);
-  }, [data]);
+  }, [data, isLoading, rowData]);
 
-  return { buildingDetail: data, isLoading, getBuildingDetailByRow };
+  return { getBuildingDetailByRow };
 };
 
 export default useBuildingDetail;

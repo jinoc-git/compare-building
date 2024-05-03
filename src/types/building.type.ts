@@ -69,14 +69,34 @@ export interface BuildingDetailType {
   transactionPrice: number;
 }
 
-export interface TransformedBuildingDetailType
-  extends Omit<
-    BuildingDetailType,
-    'floor' | 'totalArea' | 'deposit' | 'rentFee' | 'maintenanceFee'
-  > {
-  floor: string;
+export interface TransformedBuildingDetailType {
+  id: string;
+  address: string;
+  image: string;
+  landPurpose:
+    | '일반상업지역'
+    | '중심상업지역'
+    | '근린상업지역'
+    | '유통상업지역';
   totalArea: string;
+  bcRat: number;
+  floor: string;
+  totalPark: number;
+  construct: {
+    year: number;
+    quarter: string;
+  };
+  platArea: string;
+  architectureArea: string;
+  vlRat: string;
+  mainPurpose: '업무시설' | '생활시설' | '공공업무시설';
   deposit: string;
-  maintenanceFee: string;
   rentFee: string;
+  coverageRatio: string; // 건폐율
+  maintenanceFee: string;
+  transactionDate: {
+    year: number;
+    month: number;
+  };
+  transactionPrice: number;
 }
