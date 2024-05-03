@@ -43,7 +43,7 @@ const DataTable = ({
     enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
-  // console.log(table.getSelectedRowModel().rows); 체크한 row 데이터
+  // console.log(table.getSelectedRowModel().rows); // 체크한 row 데이터
 
   const onClickRow = (row: TransformedBuildingType) => {
     getBuildingDetailByRow(row);

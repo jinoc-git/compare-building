@@ -9,6 +9,7 @@ export const columns: ColumnDef<TransformedBuildingType>[] = [
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
+        onClick={(e) => e.stopPropagation()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
       />
