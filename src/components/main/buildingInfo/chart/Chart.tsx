@@ -5,7 +5,11 @@ import { Dialog, DialogContent, DialogTrigger } from 'components/ui/dialog';
 
 import ChartContent from './chartContent/ChartContent';
 
-const Chart = () => {
+interface Props {
+  buildingId: string;
+}
+
+const Chart = ({ buildingId }: Props) => {
   return (
     <div className="flex justify-end items-center h-[64px]">
       <Dialog>
@@ -19,7 +23,7 @@ const Chart = () => {
           </Button>
         </DialogTrigger>
         <DialogContent>
-          <ChartContent />
+          <ChartContent buildingId={buildingId} />
         </DialogContent>
       </Dialog>
     </div>

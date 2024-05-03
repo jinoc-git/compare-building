@@ -40,7 +40,7 @@ const BuildingInfo = () => {
         <InfoItem title="건축면적" content={building.architectureArea} />
         <InfoItem title="용적율" content={building.vlRat} />
         <InfoItem title="주용도" content={building.mainPurpose} />
-        <Chart />
+        <Chart buildingId={building.id} />
       </div>
     </section>
   );
