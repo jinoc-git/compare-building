@@ -31,7 +31,7 @@ export interface TransformedBuildingType {
   floor: string;
   deposit: number;
   rentFee: string;
-  maintenanceFee: number;
+  maintenanceFee: string;
   vacancyRate: string;
 }
 

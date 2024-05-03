@@ -3,35 +3,19 @@ export const addCommas = (num: number) => {
 };
 
 export const changeAmountFormat = (amount: number) => {
-  const units = ['', '만', '억']; // 한글 단위
-  const unitCount = units.length;
-  const delimiter = ',';
-
+  const units = ['', '만', '억'];
   let result = '';
-  let remainingAmount = Math.abs(amount);
   let unitIndex = 0;
 
-  while (remainingAmount > 0 && unitIndex < unitCount) {
-    const remainder = remainingAmount % 10000; // 만 단위로 나눈 나머지
-    const formattedRemainder = ('0000' + remainder).slice(-4); // 네 자리로 맞추기
-    const formattedPortion = formattedRemainder.replace(
-      /(\d{1})(\d{3})$/,
-      '$1' + delimiter + '$2',
-    ); // 쉼표 삽입
-
-    if (formattedPortion !== '0000') {
-      // 0이 아닌 값이 있을 때만 단위 표시
-      if (result !== '') {
-        result =
-          formattedPortion.replace(/^0+/, '') + units[unitIndex] + ' ' + result;
-      } else {
-        result = formattedPortion.replace(/^0+/, '') + units[unitIndex]; // 앞의 0 제거
-      }
+  while (amount > 0) {
+    if (amount % 10000 !== 0) {
+      result = (amount % 10000) + units[unitIndex] + ' ' + result;
     }
-
-    remainingAmount = Math.floor(remainingAmount / 10000); // 다음 단위로 이동
+    amount = Math.floor(amount / 10000);
     unitIndex++;
   }
 
-  return result === '' ? '0원' : result + '원';
+  result = result.trim();
+
+  return result + '원';
 };

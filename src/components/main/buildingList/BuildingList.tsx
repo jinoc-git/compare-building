@@ -9,7 +9,7 @@ import { columns } from './colunms/columns';
 import DataTable from './data-table/DataTable';
 
 const BuildingList = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['buildings'],
     queryFn: fetchBuildings,
     staleTime: 60 * 60,
@@ -21,6 +21,7 @@ const BuildingList = () => {
           nla: data.nla.toFixed(2) + '%',
           floor: `지하 ${data.floor.under}층 / 지상 ${data.floor.above}층`,
           rentFee: changeAmountFormat(data.rentFee),
+          maintenanceFee: changeAmountFormat(data.maintenanceFee),
           vacancyRate: data.vacancyRate.toFixed(2) + '%',
         };
       });
