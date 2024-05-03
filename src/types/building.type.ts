@@ -68,3 +68,15 @@ export interface BuildingDetailType {
   };
   transactionPrice: number;
 }
+
+export interface TransformedBuildingDetailType
+  extends Omit<
+    BuildingDetailType,
+    'floor' | 'totalArea' | 'deposit' | 'rentFee' | 'maintenanceFee'
+  > {
+  floor: string;
+  totalArea: string;
+  deposit: string;
+  maintenanceFee: string;
+  rentFee: string;
+}

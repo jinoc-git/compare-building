@@ -16,21 +16,25 @@ import {
   TableHeader,
   TableRow,
 } from 'components/ui/table';
+import useBuildingDetail from 'hooks/useBuildingDetail';
 
 import type { RowSelectionState } from '@tanstack/react-table';
+import type { TransformedBuildingType } from 'types/building.type';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-const DataTable = <TData, TValue>({
+const DataTable = ({
   columns,
   data,
-}: DataTableProps<TData, TValue>) => {
+}: DataTableProps<TransformedBuildingType, any>) => {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
-  const table = useReactTable({
+  const getBuildingDetailByRow = useBuildingDetail().getBuildingDetailByRow;
+
+  const table = useReactTable<TransformedBuildingType>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
@@ -41,14 +45,16 @@ const DataTable = <TData, TValue>({
 
   // console.log(table.getSelectedRowModel().rows); 체크한 row 데이터
 
-  const onClickRow = () => {};
+  const onClickRow = (row: TransformedBuildingType) => {
+    getBuildingDetailByRow(row);
+  };
 
   return (
     <ScrollArea className="h-[353px] overflow-auto">
       <Table className=" min-w-[1400px]">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} onClick={onClickRow}>
+            <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header, idx) => {
                 const className =
                   idx === 0
@@ -82,6 +88,7 @@ const DataTable = <TData, TValue>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
+                onClick={() => onClickRow(row.original)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
