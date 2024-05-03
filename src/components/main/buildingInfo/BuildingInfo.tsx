@@ -4,6 +4,7 @@ import { addCommas } from 'lib/changeFormat';
 import { useBuildingStoreState } from 'store/buildingStore';
 
 import InfoItem from './infoItem/InfoItem';
+import LookChart from './lookChart/LookChart';
 
 const BuildingInfo = () => {
   const { building, isLoading } = useBuildingStoreState();
@@ -39,6 +40,7 @@ const BuildingInfo = () => {
         <InfoItem title="건축면적" content={building.architectureArea} />
         <InfoItem title="용적율" content={building.vlRat} />
         <InfoItem title="주용도" content={building.mainPurpose} />
+        <LookChart />
       </div>
     </section>
   );
