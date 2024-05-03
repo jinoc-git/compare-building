@@ -12,7 +12,7 @@ const BuildingInfo = () => {
 
   if (building === null) return null;
 
-  console.log(building, isLoading);
+  // console.log(building, isLoading);
 
   return (
     <section className="flex justify-between mt-[10px] p-[10px] border-t-2">

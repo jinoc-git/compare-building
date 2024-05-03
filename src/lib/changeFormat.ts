@@ -1,3 +1,5 @@
+import type { ChartDataItemType } from 'types/chart.type';
+
 export const addCommas = (num: number) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
@@ -18,4 +20,11 @@ export const changeAmountFormat = (amount: number) => {
   result = result.trim();
 
   return result + '원';
+};
+
+export const changeChartDataFormat = (
+  data: ChartDataItemType,
+  name: string,
+) => {
+  console.log(data, name);
 };
