@@ -13,7 +13,8 @@ const BuildingList = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['buildings'],
     queryFn: fetchBuildings,
-    staleTime: 60 * 60,
+    staleTime: 60 * 60 * 60,
+    refetchOnWindowFocus: false,
     select: (datas) => {
       const transformedDatas = datas.map((data) => {
         return {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   type ColumnDef,
@@ -17,6 +17,8 @@ import {
   TableRow,
 } from 'components/ui/table';
 
+import type { RowSelectionState } from '@tanstack/react-table';
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -26,10 +28,17 @@ const DataTable = <TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) => {
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onRowSelectionChange: setRowSelection,
+    state: {
+      rowSelection,
+    },
+    enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
   // console.log(table.getSelectedRowModel().rows); 체크한 row 데이터
