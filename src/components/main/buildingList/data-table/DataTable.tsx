@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {
-  type ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
 import { ScrollArea, ScrollBar } from 'components/ui/scroll-area';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from 'components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'components/ui/table';
 import useBuildingDetail from 'hooks/useBuildingDetail';
+import { useCompareStoreActions } from 'store/compareStore';
 
 import type { RowSelectionState } from '@tanstack/react-table';
 import type { TransformedBuildingType } from 'types/building.type';
@@ -26,13 +15,11 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-const DataTable = ({
-  columns,
-  data,
-}: DataTableProps<TransformedBuildingType, any>) => {
+const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, any>) => {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   const { getBuildingDetailByRow } = useBuildingDetail();
+  const { setCheckedBuildingIds } = useCompareStoreActions();
 
   const table = useReactTable<TransformedBuildingType>({
     data,
@@ -43,16 +30,23 @@ const DataTable = ({
     enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
-  // console.log(table.getSelectedRowModel().rows); // 체크한 row 데이터
-
   const onClickRow = (row: TransformedBuildingType) => {
     getBuildingDetailByRow(row);
   };
 
+  useEffect(() => {
+    const checkedIdsAndNames = table.getSelectedRowModel().rows.map(({ original }) => ({
+      id: original.id,
+      name: original.buildingName,
+    }));
+
+    setCheckedBuildingIds(checkedIdsAndNames);
+  }, [table.getSelectedRowModel()]);
+
   return (
     <ScrollArea className="h-[353px] overflow-auto">
       <Table className=" min-w-[1400px]">
-        <TableHeader>
+        <TableHeader className="sticky top-0 shadow-tableTop">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header, idx) => {
@@ -72,10 +66,7 @@ const DataTable = ({
                   <TableHead key={header.id} className={className}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 );
               })}

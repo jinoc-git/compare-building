@@ -58,8 +58,10 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
-        tHeader:
+        tableTop:
           '0 -6px 6px -1px rgba(229, 232, 237, 1), 0 2px 1px 0 rgba(229, 232, 237, 1) inset',
+        tableLeft:
+          '-10px 0 10px -1px rgba(229, 232, 237, 1), 2px 0 1px 0 rgba(229, 232, 237, 1) inset',
       },
       keyframes: {
         'accordion-down': {

@@ -1,7 +1,4 @@
-import type {
-  generateMockBuildingDetail,
-  generateMockBuildings,
-} from 'mock/data/building';
+import type { generateMockBuildingDetail, generateMockBuildings } from 'mock/data/building';
 
 export type BuildingType = ReturnType<typeof generateMockBuildings>[0];
 export type BuildingDetailType = ReturnType<typeof generateMockBuildingDetail>;
@@ -49,4 +46,17 @@ export type TransformedBuildingDetailType = {
     month: number;
   };
   transactionPrice: number;
+};
+
+export type CompareBuildingDataType = (BuildingDetailType | undefined)[];
+
+export type TransformdCompareBuildingDatasType = {
+  images: string[];
+  constructs: string[];
+  totalAreas: string[];
+  deposits: string[];
+  rentFees: string[];
+  maintenanceFees: string[];
+  transactionDates: string[];
+  transactionPrices: string[];
 };

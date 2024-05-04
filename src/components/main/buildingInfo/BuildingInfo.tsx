@@ -16,20 +16,13 @@ const BuildingInfo = () => {
 
   return (
     <section className="flex justify-between mt-[10px] p-[10px] border-t-2">
-      <img
-        src={building.image}
-        alt="건물 이미지"
-        className="w-[300px] h-[300px] border"
-      />
+      <img src={building.image} alt="건물 이미지" className="w-[300px] h-[300px] border" />
       <div className="w-1/3 pt-4 space-y-3">
         <InfoItem title="용도지역" content={building.landPurpose} />
         <InfoItem title="연면적" content={building.totalArea} />
         <InfoItem title="건폐율" content={building.coverageRatio} />
         <InfoItem title="층수" content={building.floor} />
-        <InfoItem
-          title="총 주차대수"
-          content={addCommas(building.totalPark) + '대'}
-        />
+        <InfoItem title="총 주차대수" content={addCommas(building.totalPark) + '대'} />
         <InfoItem
           title="준공연도"
           content={`${building.construct.year}년 (${building.construct.quarter})`}

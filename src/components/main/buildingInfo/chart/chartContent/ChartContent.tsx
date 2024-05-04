@@ -20,21 +20,9 @@ const ChartContent = ({ buildingId }: Props) => {
 
   return (
     <>
-      <ChartContentItem
-        data={data.rentFee}
-        dataKey="임대료"
-        lineColor={'#8070ED'}
-      />
-      <ChartContentItem
-        data={data.maintenanceFee}
-        dataKey="관리비"
-        lineColor={'#66A4DF'}
-      />
-      <ChartContentItem
-        data={data.vacancyRate}
-        dataKey="공실률"
-        lineColor={'#CA9EBF'}
-      />
+      <ChartContentItem data={data.rentFee} dataKey="임대료" lineColor={'#8070ED'} />
+      <ChartContentItem data={data.maintenanceFee} dataKey="관리비" lineColor={'#66A4DF'} />
+      <ChartContentItem data={data.vacancyRate} dataKey="공실률" lineColor={'#CA9EBF'} />
     </>
   );
 };
