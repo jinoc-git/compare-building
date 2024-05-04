@@ -14,10 +14,7 @@ interface State {
 }
 
 interface Actions {
-  setBuildingDetail: (
-    data: BuildingDetailType,
-    rowData: TransformedBuildingType,
-  ) => void;
+  setBuildingDetail: (data: BuildingDetailType, rowData: TransformedBuildingType) => void;
   setIsLoading: (val: boolean) => void;
 }
 
@@ -60,7 +57,5 @@ export const buildingStore = create<Store>((set) => ({
   },
 }));
 
-export const useBuildingStoreState = () =>
-  buildingStore((store) => store.state);
-export const useBuildingStoreActions = () =>
-  buildingStore((store) => store.actions);
+export const useBuildingStoreState = () => buildingStore((store) => store.state);
+export const useBuildingStoreActions = () => buildingStore((store) => store.actions);

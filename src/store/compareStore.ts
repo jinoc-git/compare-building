@@ -31,5 +31,4 @@ export const compareStore = create<Store>((set) => ({
 }));
 
 export const useCompareStoreState = () => compareStore((store) => store.state);
-export const useCompareStoreActions = () =>
-  compareStore((store) => store.actions);
+export const useCompareStoreActions = () => compareStore((store) => store.actions);

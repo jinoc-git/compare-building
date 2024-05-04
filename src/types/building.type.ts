@@ -1,7 +1,4 @@
-import type {
-  generateMockBuildingDetail,
-  generateMockBuildings,
-} from 'mock/data/building';
+import type { generateMockBuildingDetail, generateMockBuildings } from 'mock/data/building';
 
 export type BuildingType = ReturnType<typeof generateMockBuildings>[0];
 export type BuildingDetailType = ReturnType<typeof generateMockBuildingDetail>;

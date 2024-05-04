@@ -29,10 +29,7 @@ const sortYearMonth = (data: ChartDataItemType) => {
   });
 };
 
-export const changeChartDataFormat = (
-  data: ChartDataItemType,
-  name: string,
-) => {
+export const changeChartDataFormat = (data: ChartDataItemType, name: string) => {
   const sortedData = sortYearMonth(data);
   const changed = sortedData.map((item) => {
     if (item.fee) {

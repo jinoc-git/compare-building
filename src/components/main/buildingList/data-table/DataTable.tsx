@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import {
-  type ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
 import { ScrollArea, ScrollBar } from 'components/ui/scroll-area';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from 'components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'components/ui/table';
 import useBuildingDetail from 'hooks/useBuildingDetail';
 import { useCompareStoreActions } from 'store/compareStore';
 
@@ -27,10 +15,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-const DataTable = ({
-  columns,
-  data,
-}: DataTableProps<TransformedBuildingType, any>) => {
+const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, any>) => {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   const { getBuildingDetailByRow } = useBuildingDetail();
@@ -50,12 +35,10 @@ const DataTable = ({
   };
 
   useEffect(() => {
-    const checkedIdsAndNames = table
-      .getSelectedRowModel()
-      .rows.map(({ original }) => ({
-        id: original.id,
-        name: original.buildingName,
-      }));
+    const checkedIdsAndNames = table.getSelectedRowModel().rows.map(({ original }) => ({
+      id: original.id,
+      name: original.buildingName,
+    }));
 
     setCheckedBuildingIds(checkedIdsAndNames);
   }, [table.getSelectedRowModel()]);
@@ -83,10 +66,7 @@ const DataTable = ({
                   <TableHead key={header.id} className={className}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 );
               })}

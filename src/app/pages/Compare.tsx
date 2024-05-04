@@ -27,10 +27,7 @@ const Compare = () => {
 
   return (
     <RootLayout>
-      <CompareBuildingList
-        buildingNames={buildingNames}
-        buildingDetails={buildingDetails}
-      />
+      <CompareBuildingList buildingNames={buildingNames} buildingDetails={buildingDetails} />
     </RootLayout>
   );
 };
