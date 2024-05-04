@@ -13,7 +13,6 @@ export const compareStore = create<Store>((set) => ({
   state: [],
   actions: {
     setCheckedBuildingIds: (ids: string[]) => {
-      console.log(ids);
       set({ state: ids });
     },
   },
