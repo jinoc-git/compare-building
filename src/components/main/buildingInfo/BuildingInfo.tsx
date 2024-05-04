@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { addCommas } from 'lib/changeFormat';
 import { useBuildingStoreState } from 'store/buildingStore';
 
+import Chart from './chart/Chart';
 import InfoItem from './infoItem/InfoItem';
-import LookChart from './lookChart/LookChart';
 
 const BuildingInfo = () => {
   const { building, isLoading } = useBuildingStoreState();
@@ -12,7 +12,7 @@ const BuildingInfo = () => {
 
   if (building === null) return null;
 
-  console.log(building, isLoading);
+  // console.log(building, isLoading);
 
   return (
     <section className="flex justify-between mt-[10px] p-[10px] border-t-2">
@@ -40,7 +40,7 @@ const BuildingInfo = () => {
         <InfoItem title="건축면적" content={building.architectureArea} />
         <InfoItem title="용적율" content={building.vlRat} />
         <InfoItem title="주용도" content={building.mainPurpose} />
-        <LookChart />
+        <Chart buildingId={building.id} />
       </div>
     </section>
   );

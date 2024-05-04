@@ -16,8 +16,6 @@ const useBuildingDetail = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['buildingDetail', buildingId],
     queryFn: () => fetchBuildingDetailById(buildingId),
-    staleTime: 60 * 60 * 60,
-    refetchOnWindowFocus: false,
     enabled: buildingId !== '',
   });
 

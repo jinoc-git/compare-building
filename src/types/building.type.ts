@@ -1,24 +1,12 @@
-export interface BuildingType {
-  id: string;
-  address: string;
-  buildingName: string;
-  construct: {
-    year: number;
-    quarter: string;
-  };
-  totalArea: number;
-  nla: number;
-  floor: {
-    under: number;
-    above: number;
-  };
-  deposit: number;
-  rentFee: number;
-  maintenanceFee: number;
-  vacancyRate: number;
-}
+import type {
+  generateMockBuildingDetail,
+  generateMockBuildings,
+} from 'mock/data/building';
 
-export interface TransformedBuildingType {
+export type BuildingType = ReturnType<typeof generateMockBuildings>[0];
+export type BuildingDetailType = ReturnType<typeof generateMockBuildingDetail>;
+
+export type TransformedBuildingType = {
   id: string;
   address: string;
   buildingName: string;
@@ -33,51 +21,13 @@ export interface TransformedBuildingType {
   rentFee: string;
   maintenanceFee: string;
   vacancyRate: string;
-}
+};
 
-export interface BuildingDetailType {
+export type TransformedBuildingDetailType = {
   id: string;
   address: string;
   image: string;
-  landPurpose:
-    | '일반상업지역'
-    | '중심상업지역'
-    | '근린상업지역'
-    | '유통상업지역';
-  totalArea: number;
-  bcRat: number;
-  floor: {
-    under: number;
-    above: number;
-  };
-  totalPark: number;
-  construct: {
-    year: number;
-    quarter: string;
-  };
-  platArea: number;
-  architectureArea: number;
-  vlRat: number;
-  mainPurpose: '업무시설' | '생활시설' | '공공업무시설';
-  deposit: number;
-  rentFee: number;
-  maintenanceFee: number;
-  transactionDate: {
-    year: number;
-    month: number;
-  };
-  transactionPrice: number;
-}
-
-export interface TransformedBuildingDetailType {
-  id: string;
-  address: string;
-  image: string;
-  landPurpose:
-    | '일반상업지역'
-    | '중심상업지역'
-    | '근린상업지역'
-    | '유통상업지역';
+  landPurpose: string;
   totalArea: string;
   bcRat: number;
   floor: string;
@@ -89,7 +39,7 @@ export interface TransformedBuildingDetailType {
   platArea: string;
   architectureArea: string;
   vlRat: string;
-  mainPurpose: '업무시설' | '생활시설' | '공공업무시설';
+  mainPurpose: string;
   deposit: string;
   rentFee: string;
   coverageRatio: string; // 건폐율
@@ -99,4 +49,4 @@ export interface TransformedBuildingDetailType {
     month: number;
   };
   transactionPrice: number;
-}
+};
