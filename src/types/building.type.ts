@@ -47,3 +47,5 @@ export type TransformedBuildingDetailType = {
   };
   transactionPrice: number;
 };
+
+export type CompareBuildingDataType = (BuildingDetailType | undefined)[];

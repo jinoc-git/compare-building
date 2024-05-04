@@ -23,6 +23,9 @@ const Compare = () => {
   const isLoading = result.some((data) => data.isLoading);
   if (isLoading) return <div>로딩</div>;
 
+  const isError = result.some((data) => data.isError);
+  if (isError) return <div>에러</div>;
+
   const buildingDetails = result.map((data) => data.data);
 
   return (
