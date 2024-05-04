@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   type ColumnDef,
@@ -17,6 +17,7 @@ import {
   TableRow,
 } from 'components/ui/table';
 import useBuildingDetail from 'hooks/useBuildingDetail';
+import { useCompareStoreActions } from 'store/compareStore';
 
 import type { RowSelectionState } from '@tanstack/react-table';
 import type { TransformedBuildingType } from 'types/building.type';
@@ -33,6 +34,7 @@ const DataTable = ({
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   const { getBuildingDetailByRow } = useBuildingDetail();
+  const { setCheckedBuildingIds } = useCompareStoreActions();
 
   const table = useReactTable<TransformedBuildingType>({
     data,
@@ -43,11 +45,17 @@ const DataTable = ({
     enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
-  // console.log(table.getSelectedRowModel().rows); // 체크한 row 데이터
-
   const onClickRow = (row: TransformedBuildingType) => {
     getBuildingDetailByRow(row);
   };
+
+  useEffect(() => {
+    const checkedIds = table
+      .getSelectedRowModel()
+      .rows.map(({ original }) => original.id);
+
+    setCheckedBuildingIds(checkedIds);
+  }, [table.getSelectedRowModel()]);
 
   return (
     <ScrollArea className="h-[353px] overflow-auto">
