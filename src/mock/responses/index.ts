@@ -1,6 +1,6 @@
-import chartResponse from './chart';
 import buildingDetailResponse from './buildingDetail';
 import buildingsResponse from './buildings';
+import chartResponse from './chart';
 
 const responses = {
   chartResponse,

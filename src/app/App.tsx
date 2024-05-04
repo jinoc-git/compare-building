@@ -1,13 +1,23 @@
-import MockSamples from './MockSamples';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+import Router from 'shared/Router';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 60 * 60,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="w-full border border-black m-3 p-1">
-      <main>
-        <div>알스퀘어 Frontend 과제입니다.</div>
-        <MockSamples />
-      </main>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
