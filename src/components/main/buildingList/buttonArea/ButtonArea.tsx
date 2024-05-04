@@ -5,7 +5,11 @@ import { Button } from 'components/ui/button';
 import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
 import { useCompareStoreState } from 'store/compareStore';
 
-const CompareButton = () => {
+interface Props {
+  onClickAllClear?: () => void;
+}
+
+const ButtonArea = ({ onClickAllClear }: Props) => {
   const navigate = useNavigate();
 
   const state = useCompareStoreState();
@@ -18,7 +22,10 @@ const CompareButton = () => {
   };
 
   return (
-    <div className="flex justify-end items-center w-full h-[50px]">
+    <div className="flex justify-between items-center w-full h-[50px]">
+      <Button variant={'outline'} onClick={onClickAllClear} className="w-[90px] h-[30px] text-xs">
+        모든 선택 해제
+      </Button>
       <Button
         onClick={onClickCompareBtn}
         variant={'outline'}
@@ -31,4 +38,4 @@ const CompareButton = () => {
   );
 };
 
-export default CompareButton;
+export default ButtonArea;

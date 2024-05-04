@@ -7,7 +7,6 @@ import SkeletonBuildingList from 'components/skeleton/main/buildingList/Skeleton
 import { addCommas, changeAmountFormat } from 'lib/changeFormat';
 
 import { columns } from './colunms/columns';
-import CompareButton from './compareButton/CompareButton';
 import DataTable from './data-table/DataTable';
 
 const BuildingList = () => {
@@ -36,7 +35,7 @@ const BuildingList = () => {
 
   return (
     <section>
-      <CompareButton />
+      {/* <CompareButton /> */}
       <DataTable columns={columns} data={data} />
     </section>
   );

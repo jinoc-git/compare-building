@@ -1,12 +1,12 @@
 import React from 'react';
 
-import CompareButton from 'components/main/buildingList/compareButton/CompareButton';
+import ButtonArea from 'components/main/buildingList/buttonArea/ButtonArea';
 import { Skeleton } from 'components/ui/skeleton';
 
 const SkeletonBuildingList = () => {
   return (
     <section>
-      <CompareButton />
+      <ButtonArea />
       <Skeleton className="w-full h-[353px]" />
     </section>
   );
