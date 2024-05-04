@@ -19,23 +19,32 @@ type Title =
 interface Props {
   title: Title;
   data: TransformdCompareBuildingDatasType[keyof TransformdCompareBuildingDatasType];
+  lowIdx?: number;
+  highIdx?: number;
 }
 
-const CompareTableData = ({ title, data }: Props) => {
+const CompareTableData = ({ title, data, lowIdx, highIdx }: Props) => {
   return (
     <TableRow>
       <TableCell className="sticky left-0 bg-white shadow-tableLeft">{title}</TableCell>
-      {data.map((item) => {
+      {data.map((item, idx) => {
         const isImage = title === '이미지' && typeof item === 'string';
         if (isImage) {
           return (
-            <TableCell key={uuidv4()} className=" py-2">
+            <TableCell key={uuidv4()} className="py-2">
               <img src={item} alt="빌딩 이미지" className="w-[110px]" />
             </TableCell>
           );
         }
 
-        return <TableCell key={uuidv4()}>{item}</TableCell>;
+        const fontColor =
+          idx === lowIdx ? 'text-[#F49898]' : idx === highIdx ? 'text-[#8870ED]' : '';
+
+        return (
+          <TableCell key={uuidv4()} className={fontColor}>
+            {item}
+          </TableCell>
+        );
       })}
     </TableRow>
   );

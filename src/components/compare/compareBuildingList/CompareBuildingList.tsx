@@ -18,8 +18,7 @@ const CompareBuildingList = ({ buildingNames, buildingDetails }: Props) => {
   const { transformVerticalDatas, getLowHighIdx } = useCompareDatas(buildingDetails);
 
   const datas = transformVerticalDatas();
-  const lowHighIdx = getLowHighIdx();
-  console.log(lowHighIdx);
+  const { low, high } = getLowHighIdx();
 
   return (
     <section>
@@ -28,13 +27,48 @@ const CompareBuildingList = ({ buildingNames, buildingDetails }: Props) => {
           <CompareTableHeader buildingNames={buildingNames} />
           <TableBody>
             <CompareTableData title="이미지" data={datas.images} />
-            <CompareTableData title="준공연도" data={datas.constructs} />
-            <CompareTableData title="연면적" data={datas.totalAreas} />
-            <CompareTableData title="보증금" data={datas.deposits} />
-            <CompareTableData title="임대료" data={datas.rentFees} />
-            <CompareTableData title="관리비" data={datas.maintenanceFees} />
-            <CompareTableData title="최근거래일" data={datas.transactionDates} />
-            <CompareTableData title="거래가" data={datas.transactionPrices} />
+            <CompareTableData
+              title="준공연도"
+              data={datas.constructs}
+              lowIdx={low.construct}
+              highIdx={high.construct}
+            />
+            <CompareTableData
+              title="연면적"
+              data={datas.totalAreas}
+              lowIdx={low.totalArea}
+              highIdx={high.totalArea}
+            />
+            <CompareTableData
+              title="보증금"
+              data={datas.deposits}
+              lowIdx={low.deposit}
+              highIdx={high.deposit}
+            />
+            <CompareTableData
+              title="임대료"
+              data={datas.rentFees}
+              lowIdx={low.rentFee}
+              highIdx={high.rentFee}
+            />
+            <CompareTableData
+              title="관리비"
+              data={datas.maintenanceFees}
+              lowIdx={low.maintenanceFee}
+              highIdx={high.maintenanceFee}
+            />
+            <CompareTableData
+              title="최근거래일"
+              data={datas.transactionDates}
+              lowIdx={low.transactionDate}
+              highIdx={high.transactionDate}
+            />
+            <CompareTableData
+              title="거래가"
+              data={datas.transactionPrices}
+              lowIdx={low.transactionPrice}
+              highIdx={high.transactionPrice}
+            />
           </TableBody>
         </Table>
         <ScrollBar orientation="horizontal" />
