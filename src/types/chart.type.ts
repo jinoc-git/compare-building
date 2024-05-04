@@ -1,3 +1,4 @@
+import type { changeChartDataFormat } from 'lib/changeFormat';
 import type { generateMockChartData } from 'mock/data/chart';
 
 export type ChartType = ReturnType<typeof generateMockChartData>;
@@ -10,3 +11,5 @@ export type ChartDataItemType = {
   fee?: number;
   rate?: number;
 }[];
+
+export type ChartDataType = ReturnType<typeof changeChartDataFormat>;

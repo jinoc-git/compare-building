@@ -3,7 +3,6 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchBuildingChartById } from 'api/building';
-import { changeChartDataFormat } from 'lib/changeFormat';
 
 import ChartContentItem from './chartContentItem/ChartContentItem';
 
@@ -19,14 +18,23 @@ const ChartContent = ({ buildingId }: Props) => {
 
   if (!data) return null;
 
-  console.log(data);
-  const rentFeeData = changeChartDataFormat(data.rentFee, '임대료');
-
   return (
     <>
-      <ChartContentItem />
-      <ChartContentItem />
-      <ChartContentItem />
+      <ChartContentItem
+        data={data.rentFee}
+        dataKey="임대료"
+        lineColor={'#8070ED'}
+      />
+      <ChartContentItem
+        data={data.maintenanceFee}
+        dataKey="관리비"
+        lineColor={'#66A4DF'}
+      />
+      <ChartContentItem
+        data={data.vacancyRate}
+        dataKey="공실률"
+        lineColor={'#CA9EBF'}
+      />
     </>
   );
 };

@@ -27,7 +27,7 @@ const generateMockChartData = (id: string) => {
           year: faker.number.int({ min: 1990, max: 2024 }),
           month: faker.number.int({ min: 1, max: 12 }),
         },
-        rate: faker.number.int({ min: 1000000, max: 100000000 }),
+        rate: faker.number.float({ min: 0, max: 100 }),
       };
     }),
   };

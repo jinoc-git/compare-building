@@ -1,30 +1,53 @@
 import React from 'react';
 
 import {
+  CartesianGrid,
   Legend,
   Line,
   LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from 'recharts';
+
+import { changeChartDataFormat } from 'lib/changeFormat';
+
+import type { ChartDataItemType } from 'types/chart.type';
 
 // #8070ED #66A4DF #CA9EBF
 
-interface Props {}
+interface Props {
+  data: ChartDataItemType;
+  dataKey: '임대료' | '관리비' | '공실률';
+  lineColor: string;
+}
 
-const ChartContentItem = ({}: Props) => {
+const ChartContentItem = ({ data, dataKey, lineColor }: Props) => {
+  const chartData = changeChartDataFormat(data, dataKey);
+  console.log(chartData);
   return (
-    <ResponsiveContainer width={'100%'} height={'200px'}>
-      <LineChart width={450} height={180}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type={'monotone'} stroke="#8070ED" activeDot={{ r: 8 }} />
-      </LineChart>
-    </ResponsiveContainer>
+    <div className="h-[200px]">
+      <ResponsiveContainer width={'100%'} height={'100%'}>
+        <LineChart
+          data={chartData}
+          width={450}
+          height={180}
+          margin={{ top: 5, right: 30, left: 30, bottom: 0 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" fontSize={'12px'} interval={0} />
+          <Tooltip />
+          <Legend />
+          <Line
+            type={'monotone'}
+            dataKey={dataKey}
+            stroke={lineColor}
+            strokeWidth={2}
+            activeDot={{ r: 8 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
