@@ -10,6 +10,7 @@ import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
 
 const Compare = () => {
   const [searchParams] = useSearchParams();
+
   const { makeFetchQueries } = useCompareFetchQuery();
 
   const buildingIds = searchParams.get('ids');

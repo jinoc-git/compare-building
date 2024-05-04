@@ -5,9 +5,14 @@ import { Skeleton } from 'components/ui/skeleton';
 
 const SkeletonBuildingInfo = () => {
   return (
-    <section className="flex justify-between mt-[10px] p-[10px] border-t-2">
+    <section
+      className="mt-[10px] p-[10px] border-t-2
+        sm:flex sm:flex-col sm:items-center
+        lg:flex lg:flex-row lg:justify-between
+      "
+    >
       <Skeleton className="w-[300px] h-[300px]" />
-      <div className="w-1/3 pt-4 space-y-3">
+      <div className="sm:w-full lg:w-1/3 pt-4 space-y-3">
         <Skeleton className="w-full min-w-[300px] h-8" />
         <Skeleton className="w-full min-w-[300px] h-8" />
         <Skeleton className="w-full min-w-[300px] h-8" />
@@ -15,7 +20,7 @@ const SkeletonBuildingInfo = () => {
         <Skeleton className="w-full min-w-[300px] h-8" />
         <Skeleton className="w-full min-w-[300px] h-8" />
       </div>
-      <div className="w-1/3 pt-4 space-y-3">
+      <div className="sm:w-full lg:w-1/3 pt-4 space-y-3">
         <Skeleton className="w-full min-w-[300px] h-8" />
         <Skeleton className="w-full min-w-[300px] h-8" />
         <Skeleton className="w-full min-w-[300px] h-8" />

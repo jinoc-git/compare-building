@@ -16,6 +16,19 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    screens: {
+      sm: '320px',
+      md: '560px',
+      lg: '1100px',
+    },
+    fontSize: {
+      xxs: ['10px', '12px'],
+      xs: ['12px', '16px'],
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',

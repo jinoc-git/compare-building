@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CompareButton from 'components/main/buildingList/compareButton/CompareButton';
+import ButtonArea from 'components/main/buildingList/buttonArea/ButtonArea';
 import { Skeleton } from 'components/ui/skeleton';
 
 const SkeletonBuildingList = () => {
   return (
     <section>
-      <CompareButton />
-      <Skeleton className="w-full h-[353px]" />
+      <ButtonArea />
+      <Skeleton className="w-full sm:h-[250px] lg:h-[353px]" />
     </section>
   );
 };

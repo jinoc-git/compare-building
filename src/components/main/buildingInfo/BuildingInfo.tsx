@@ -15,15 +15,20 @@ const BuildingInfo = () => {
   if (isLoading) return <SkeletonBuildingInfo />;
 
   return (
-    <section className="flex justify-between mt-[10px] p-[10px] border-t-2">
+    <section
+      className="mt-[10px] p-[10px] border-t-2
+        sm:flex sm:flex-col sm:items-center
+        lg:flex lg:flex-row lg:justify-between
+      "
+    >
       <ImgSkeleton
         src={building.image}
         alt="빌딩 이미지"
-        className="w-[300px] h-[300px]"
+        className="sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[300px]"
         trigger={building}
       />
 
-      <div className="w-1/3 pt-4 space-y-3">
+      <div className="sm:w-full lg:w-1/3 pt-4 space-y-3">
         <InfoItem title="용도지역" content={building.landPurpose} />
         <InfoItem title="연면적" content={building.totalArea} />
         <InfoItem title="건폐율" content={building.coverageRatio} />
@@ -34,7 +39,7 @@ const BuildingInfo = () => {
           content={`${building.construct.year}년 (${building.construct.quarter})`}
         />
       </div>
-      <div className="w-1/3 pt-4 space-y-3">
+      <div className="sm:w-full lg:w-1/3 pt-4 space-y-3">
         <InfoItem title="대지면적" content={building.platArea} />
         <InfoItem title="건축면적" content={building.architectureArea} />
         <InfoItem title="용적율" content={building.vlRat} />
