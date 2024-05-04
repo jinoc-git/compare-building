@@ -67,7 +67,7 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
   return (
     <>
       <ButtonArea onClickAllClear={onClickAllClear} />
-      <ScrollArea className="h-[353px] overflow-auto">
+      <ScrollArea className="sm:h-[250px] lg:h-[353px] overflow-auto">
         <Table className=" min-w-[1400px]">
           <TableHeader className="sticky top-0 shadow-tableTop">
             {table.getHeaderGroups().map((headerGroup) => (

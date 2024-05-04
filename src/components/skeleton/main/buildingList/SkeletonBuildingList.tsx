@@ -7,7 +7,7 @@ const SkeletonBuildingList = () => {
   return (
     <section>
       <ButtonArea />
-      <Skeleton className="w-full h-[353px]" />
+      <Skeleton className="w-full sm:h-[250px] lg:h-[353px]" />
     </section>
   );
 };

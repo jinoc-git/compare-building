@@ -35,7 +35,6 @@ const BuildingList = () => {
 
   return (
     <section>
-      {/* <CompareButton /> */}
       <DataTable columns={columns} data={data} />
     </section>
   );

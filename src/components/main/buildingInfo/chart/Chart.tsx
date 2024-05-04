@@ -22,7 +22,7 @@ const Chart = ({ buildingId }: Props) => {
             차트
           </Button>
         </DialogTrigger>
-        <DialogContent className="min-w-[600px]">
+        <DialogContent className="sm:min-w-[340px] lg:min-w-[600px]">
           <ChartContent buildingId={buildingId} />
         </DialogContent>
       </Dialog>

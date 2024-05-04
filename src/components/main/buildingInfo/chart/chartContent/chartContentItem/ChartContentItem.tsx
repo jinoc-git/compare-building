@@ -24,7 +24,7 @@ const ChartContentItem = ({ data, dataKey, lineColor }: Props) => {
   const chartData = changeChartDataFormat(data, dataKey);
 
   return (
-    <div className="h-[200px]">
+    <div className="sm:h-[150px] sm:w-full lg:h-[200px] lg:w-[550px]">
       <ResponsiveContainer width={'100%'} height={'100%'}>
         <LineChart
           data={chartData}
@@ -33,7 +33,7 @@ const ChartContentItem = ({ data, dataKey, lineColor }: Props) => {
           margin={{ top: 5, right: 30, left: 30, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" fontSize={'12px'} interval={0} />
+          <XAxis dataKey="date" interval={0} className="sm:hidden md:block md:text-xs lg:text-sm" />
           <Tooltip />
           <Legend />
           <Line
