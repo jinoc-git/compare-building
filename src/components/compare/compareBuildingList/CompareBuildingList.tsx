@@ -1,28 +1,18 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 
-import { useQueries } from '@tanstack/react-query';
+import type { BuildingDetailType } from 'types/building.type';
 
-import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
+interface Props {
+  buildingDetails: (BuildingDetailType | undefined)[];
+}
 
-const CompareBuildingList = () => {
-  const [searchParams] = useSearchParams();
-  const { makeFetchQueries } = useCompareFetchQuery();
-
-  const buildingIds = searchParams.get('ids');
-
-  const result = useQueries({
-    queries: makeFetchQueries(buildingIds),
-  });
-
-  console.log(result);
-
-  if (buildingIds === null) return <div>선택해주세요</div>;
+const CompareBuildingList = ({ buildingDetails }: Props) => {
+  console.log(buildingDetails);
 
   return (
-    <div>
+    <section>
       <div>CompareBuildingList</div>
-    </div>
+    </section>
   );
 };
 
