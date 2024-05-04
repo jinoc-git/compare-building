@@ -38,10 +38,42 @@
 - 스켈레톤 UI : 데이터를 불러오는 시간동안 스켈레톤 UI를 사용하여 사용자의 UX를 향상.
 - 반응형 디자인 : 화면 사이즈에 따라 적절한 UI 구성
 
+## 폴더 구조
+
+📦src<br />
+┣ 📂api<br />
+┣ 📂app<br />
+┃ ┣ 📂pages<br />
+┃ ┃ ┣ 📜Compare.tsx<br />
+┃ ┃ ┗ 📜Main.tsx<br />
+┃ ┗ 📜App.tsx<br />
+┣ 📂components<br />
+┃ ┣ 📂common<br />
+┃ ┣ 📂compare<br />
+┃ ┃ ┗ 📂compareBuildingList<br />
+┃ ┣ 📂main<br />
+┃ ┃ ┣ 📂buildingInfo<br />
+┃ ┃ ┃ ┣ 📂chart<br />
+┃ ┃ ┃ ┣ 📂infoItem<br />
+┃ ┃ ┗ 📂buildingList<br />
+┃ ┣ 📂skeleton<br />
+┃ ┃ ┣ 📂common<br />
+┃ ┃ ┣ 📂compare<br />
+┃ ┃ ┗ 📂main<br />
+┃ ┗ 📂ui<br />
+┣ 📂hooks<br />
+┣ 📂lib<br />
+┣ 📂mock<br />
+┃ ┣ 📂data<br />
+┃ ┣ 📂responses<br />
+┣ 📂shared<br />
+┣ 📂store<br />
+┣ 📂types<br />
+
 ## API 명세
 
-| API 명                 | 메소드 | 함수 명                 | Req          | Res                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 비고 |
-| ---------------------- | ------ | ----------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| 빌딩 리스트 불러오기   | GET    | fetchBuildings          |              | `{ id: string;<br /> address: string;<br /> buildingName: string;<br /> construct: { year: number;<br /> quarter: string;<br />}totalArea:number;<br />nla: number;<br />floor: {under: number;<br />above: number;<br />}deposit: number;<br />rentFee: number;<br />maintenanceFee: number;<br />vacancyRate: number;<br />}`                                                                                                                                                                                                       |      |
-| 빌딩 상세정보 불러오기 | GET    | fetchBuildingDetailById | `id: string` | `{ id: string;address: string;<br />image: string;<br />landPurpose: string;<br />totalArea: number;<br />bcRat: number;<br />floor: {under: number;<br />above: number;<br />}totalPark: number;<br />construct: {year: number;<br />quarter: string;<br />}platArea: number;<br />architectureArea: number;<br />vlRat: number;<br />mainPurpose: string;<br />deposit: number;<br />rentFee: number;<br />maintenanceFee: number;<br />transactionDate: {year: number;<br />month: number;<br />}transactionPrice: number;<br />}` |      |
-| 빌딩 차트 불러오기     | GET    | fetchBuildingChartById  | `id: string` | `{id: string;<br />rentFee: {date: {year: number;<br />month: number;<br />};<br />fee: number;<br />}[];<br />maintenanceFee: {date: {year: number;<br />month: number;<br />};<br />fee: number;<br />}[];<br />vacancyRate: {date: {year: number;<br />month: number;<br />};<br />rate: number;<br />}[];}`                                                                                                                                                                                                                       |      |
+| API 명                 | 메소드 | 함수 명                 | Req          | Res                                                                                                                                                                                                                                                                                                                                                                                                           | 비고 |
+| ---------------------- | ------ | ----------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| 빌딩 리스트 불러오기   | GET    | fetchBuildings          |              | `{ id: string; address: string; buildingName: string; construct: { year: number; quarter: string;}totalArea:number;nla: number;floor: {under: number;above: number;}deposit: number;rentFee: number;maintenanceFee: number;vacancyRate: number;}`                                                                                                                                                             |      |
+| 빌딩 상세정보 불러오기 | GET    | fetchBuildingDetailById | `id: string` | `{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}` |      |
+| 빌딩 차트 불러오기     | GET    | fetchBuildingChartById  | `id: string` | `{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}`                                                                                                                                                                                         |      |
