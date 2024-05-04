@@ -20,7 +20,7 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
 
   const { getBuildingDetailByRow } = useBuildingDetail();
   const { setCheckedBuildingIds } = useCompareStoreActions();
-
+  console.log(rowSelection);
   const table = useReactTable<TransformedBuildingType>({
     data,
     columns,
@@ -42,6 +42,17 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
 
     setCheckedBuildingIds(checkedIdsAndNames);
   }, [table.getSelectedRowModel()]);
+
+  useEffect(() => {
+    const init = Object.keys(rowSelection);
+    const selected = sessionStorage.getItem('selected');
+    if (init.length === 0 && selected) setRowSelection(JSON.parse(selected));
+
+    return () => {
+      const selected = JSON.stringify(rowSelection);
+      sessionStorage.setItem('selected', selected);
+    };
+  }, [rowSelection]);
 
   return (
     <ScrollArea className="h-[353px] overflow-auto">
