@@ -3,7 +3,10 @@
   "extends": ["next/core-web-vitals", "prettier"],
   "plugins": ["@typescript-eslint", "unused-imports", "prettier"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".css"]
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
@@ -44,7 +47,7 @@
             "position": "before"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react", "next"],
+        "pathGroupsExcludedImportTypes": ["react", "unknown"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
