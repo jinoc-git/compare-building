@@ -20,10 +20,12 @@ const CompareBuildingList = ({ buildingNames, buildingDetails }: Props) => {
   const datas = transformVerticalDatas();
   const { low, high } = getLowHighIdx();
 
+  const minWidth = buildingNames.length < 6 ? '800px' : '1800px';
+
   return (
     <section>
       <ScrollArea className="h-[390px] overflow-auto">
-        <Table className=" min-w-[1800px] ">
+        <Table className={`min-w-[${minWidth}]`}>
           <CompareTableHeader buildingNames={buildingNames} />
           <TableBody>
             <CompareTableData title="이미지" data={datas.images} />

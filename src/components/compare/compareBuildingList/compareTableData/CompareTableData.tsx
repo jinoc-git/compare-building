@@ -32,7 +32,7 @@ const CompareTableData = ({ title, data, lowIdx, highIdx }: Props) => {
         if (isImage) {
           return (
             <TableCell key={uuidv4()} className="py-2">
-              <img src={item} alt="빌딩 이미지" className="w-[110px]" />
+              <img src={item} alt="빌딩 이미지" className="w-[110px] mx-auto" />
             </TableCell>
           );
         }
