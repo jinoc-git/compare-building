@@ -50,11 +50,14 @@ const DataTable = ({
   };
 
   useEffect(() => {
-    const checkedIds = table
+    const checkedIdsAndNames = table
       .getSelectedRowModel()
-      .rows.map(({ original }) => original.id);
+      .rows.map(({ original }) => ({
+        id: original.id,
+        name: original.buildingName,
+      }));
 
-    setCheckedBuildingIds(checkedIds);
+    setCheckedBuildingIds(checkedIdsAndNames);
   }, [table.getSelectedRowModel()]);
 
   return (

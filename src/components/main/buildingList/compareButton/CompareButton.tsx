@@ -8,13 +8,13 @@ import { useCompareStoreState } from 'store/compareStore';
 const CompareButton = () => {
   const navigate = useNavigate();
 
-  const selectedBuildingIds = useCompareStoreState();
+  const state = useCompareStoreState();
   const { makeSearchParams } = useCompareFetchQuery();
 
   const onClickCompareBtn = () => {
-    if (selectedBuildingIds.length < 2) return;
+    if (state.length < 2) return;
 
-    navigate(`/compare?ids=${makeSearchParams(selectedBuildingIds)}`);
+    navigate(`/compare?${makeSearchParams(state)}`);
   };
 
   return (

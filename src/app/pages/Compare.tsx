@@ -12,12 +12,13 @@ const Compare = () => {
   const { makeFetchQueries } = useCompareFetchQuery();
 
   const buildingIds = searchParams.get('ids');
+  const buildingNames = searchParams.get('names')?.split(',');
 
   const result = useQueries({
     queries: makeFetchQueries(buildingIds),
   });
 
-  if (buildingIds === null) return <div>선택해주세요</div>;
+  if (buildingIds === null || !buildingNames) return <div>선택해주세요</div>;
 
   const isLoading = result.some((data) => data.isLoading);
   if (isLoading) return <div>로딩</div>;
@@ -26,7 +27,10 @@ const Compare = () => {
 
   return (
     <RootLayout>
-      <CompareBuildingList buildingDetails={buildingDetails} />
+      <CompareBuildingList
+        buildingNames={buildingNames}
+        buildingDetails={buildingDetails}
+      />
     </RootLayout>
   );
 };

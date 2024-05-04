@@ -1,8 +1,13 @@
 import { fetchBuildingDetailById } from 'api/building';
 
+import type { CompareStoreStateItem } from 'store/compareStore';
+
 const useCompareFetchQuery = () => {
-  const makeSearchParams = (ids: string[]) => {
-    return ids.join(',');
+  const makeSearchParams = (datas: CompareStoreStateItem[]) => {
+    const ids = datas.map(({ id }) => id).join(',');
+    const names = datas.map(({ name }) => name).join(',');
+
+    return `ids=${ids}&names=${names}`;
   };
 
   const makeFetchQueries = (searchParam: string | null) => {
