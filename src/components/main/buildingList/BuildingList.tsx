@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchBuildings } from 'api/building';
+import SkeletonBuildingList from 'components/skeleton/main/buildingList/SkeletonBuildingList';
 import { addCommas, changeAmountFormat } from 'lib/changeFormat';
 
 import { columns } from './colunms/columns';
@@ -31,7 +32,7 @@ const BuildingList = () => {
     },
   });
 
-  if (!data) return null;
+  if (!data || isLoading) return <SkeletonBuildingList />;
 
   return (
     <section>

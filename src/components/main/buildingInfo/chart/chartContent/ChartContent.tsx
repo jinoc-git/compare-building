@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchBuildingChartById } from 'api/building';
+import SkeletonChart from 'components/skeleton/main/buildingInfo/chart/SkeletonChart';
 
 import ChartContentItem from './chartContentItem/ChartContentItem';
 
@@ -16,7 +17,7 @@ const ChartContent = ({ buildingId }: Props) => {
     queryFn: () => fetchBuildingChartById(buildingId),
   });
 
-  if (!data) return null;
+  if (!data || isLoading) return <SkeletonChart />;
 
   return (
     <>

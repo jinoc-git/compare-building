@@ -2,6 +2,7 @@ import React from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
+import ImgSkeleton from 'components/skeleton/common/imgSkeleton/ImgSkeleton';
 import { TableCell, TableRow } from 'components/ui/table';
 
 import type { TransformdCompareBuildingDatasType } from 'types/building.type';
@@ -32,7 +33,12 @@ const CompareTableData = ({ title, data, lowIdx, highIdx }: Props) => {
         if (isImage) {
           return (
             <TableCell key={uuidv4()} className="py-2">
-              <img src={item} alt="빌딩 이미지" className="w-[110px] mx-auto" />
+              <ImgSkeleton
+                src={item}
+                alt="빌딩 이미지"
+                className="w-[110px] h-[110px] mx-auto"
+                trigger={item}
+              />
             </TableCell>
           );
         }

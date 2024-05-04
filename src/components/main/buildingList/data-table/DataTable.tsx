@@ -20,7 +20,7 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
 
   const { getBuildingDetailByRow } = useBuildingDetail();
   const { setCheckedBuildingIds } = useCompareStoreActions();
-  console.log(rowSelection);
+
   const table = useReactTable<TransformedBuildingType>({
     data,
     columns,
