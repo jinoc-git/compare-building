@@ -14,8 +14,6 @@ import { changeChartDataFormat } from 'lib/changeFormat';
 
 import type { ChartDataItemType } from 'types/chart.type';
 
-// #8070ED #66A4DF #CA9EBF
-
 interface Props {
   data: ChartDataItemType;
   dataKey: '임대료' | '관리비' | '공실률';
@@ -24,7 +22,7 @@ interface Props {
 
 const ChartContentItem = ({ data, dataKey, lineColor }: Props) => {
   const chartData = changeChartDataFormat(data, dataKey);
-  console.log(chartData);
+
   return (
     <div className="h-[200px]">
       <ResponsiveContainer width={'100%'} height={'100%'}>

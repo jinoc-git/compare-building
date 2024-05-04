@@ -5,6 +5,7 @@ import { useQueries } from '@tanstack/react-query';
 
 import RootLayout from 'components/common/layouts/RootLayout';
 import CompareBuildingList from 'components/compare/compareBuildingList/CompareBuildingList';
+import SkeletonCompareBuildingList from 'components/skeleton/compare/SkeletonCompareBuildingList';
 import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
 
 const Compare = () => {
@@ -21,7 +22,7 @@ const Compare = () => {
   if (buildingIds === null || !buildingNames) return <div>선택해주세요</div>;
 
   const isLoading = result.some((data) => data.isLoading);
-  if (isLoading) return <div>로딩</div>;
+  if (isLoading) return <SkeletonCompareBuildingList />;
 
   const isError = result.some((data) => data.isError);
   if (isError) return <div>에러</div>;
