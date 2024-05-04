@@ -2,18 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from 'components/ui/button';
+import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
 import { useCompareStoreState } from 'store/compareStore';
 
 const CompareButton = () => {
   const navigate = useNavigate();
+
   const selectedBuildingIds = useCompareStoreState();
+  const { makeSearchParams } = useCompareFetchQuery();
 
   const onClickCompareBtn = () => {
     if (selectedBuildingIds.length < 2) return;
 
-    const query = selectedBuildingIds.join(',');
-
-    navigate(`/compare?ids=${query}`);
+    navigate(`/compare?ids=${makeSearchParams(selectedBuildingIds)}`);
   };
 
   return (
