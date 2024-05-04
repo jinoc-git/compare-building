@@ -15,14 +15,16 @@ interface Props {
 }
 
 const CompareBuildingList = ({ buildingNames, buildingDetails }: Props) => {
-  const { transformVerticalDatas } = useCompareDatas();
+  const { transformVerticalDatas, getLowHighIdx } = useCompareDatas(buildingDetails);
 
-  const datas = transformVerticalDatas(buildingDetails);
+  const datas = transformVerticalDatas();
+  const lowHighIdx = getLowHighIdx();
+  console.log(lowHighIdx);
 
   return (
     <section>
-      <ScrollArea className="h-[400px] overflow-auto">
-        <Table className=" min-w-[1800px]">
+      <ScrollArea className="h-[390px] overflow-auto">
+        <Table className=" min-w-[1800px] ">
           <CompareTableHeader buildingNames={buildingNames} />
           <TableBody>
             <CompareTableData title="이미지" data={datas.images} />

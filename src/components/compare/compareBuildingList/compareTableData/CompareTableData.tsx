@@ -24,7 +24,7 @@ interface Props {
 const CompareTableData = ({ title, data }: Props) => {
   return (
     <TableRow>
-      <TableCell>{title}</TableCell>
+      <TableCell className="sticky left-0 bg-white shadow-tableLeft">{title}</TableCell>
       {data.map((item) => {
         const isImage = title === '이미지' && typeof item === 'string';
         if (isImage) {

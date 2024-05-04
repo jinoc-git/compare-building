@@ -46,7 +46,7 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
   return (
     <ScrollArea className="h-[353px] overflow-auto">
       <Table className=" min-w-[1400px]">
-        <TableHeader>
+        <TableHeader className="sticky top-0 shadow-tableTop">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header, idx) => {
