@@ -49,3 +49,14 @@ export type TransformedBuildingDetailType = {
 };
 
 export type CompareBuildingDataType = (BuildingDetailType | undefined)[];
+
+export type TransformdCompareBuildingDatasType = {
+  images: string[];
+  constructs: string[];
+  totalAreas: string[];
+  deposits: string[];
+  rentFees: string[];
+  maintenanceFees: string[];
+  transactionDates: string[];
+  transactionPrices: string[];
+};

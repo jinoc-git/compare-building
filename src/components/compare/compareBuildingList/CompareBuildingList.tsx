@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { v4 as uuidv4 } from 'uuid';
-
-import { ScrollBar } from 'components/ui/scroll-area';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'components/ui/table';
+import { ScrollArea, ScrollBar } from 'components/ui/scroll-area';
+import { Table, TableBody } from 'components/ui/table';
 import { useCompareDatas } from 'hooks/useCompareDatas';
 
-import type { CompareBuildingDataType } from 'types/building.type';
+import CompareTableData from './compareTableData/CompareTableData';
+import CompareTableHeader from './compareTableHeader/CompareTableHeader';
 
-const tableRowName = ['이미지', '연면적', '보증금', '임대료', '관리비', '최근거래일', '거래가'];
+import type { CompareBuildingDataType } from 'types/building.type';
 
 interface Props {
   buildingNames: string[];
@@ -17,31 +15,24 @@ interface Props {
 }
 
 const CompareBuildingList = ({ buildingNames, buildingDetails }: Props) => {
-  console.log(buildingNames, buildingDetails);
   const { transformVerticalDatas } = useCompareDatas();
 
   const datas = transformVerticalDatas(buildingDetails);
 
   return (
     <section>
-      <ScrollArea>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>비교빌딩</TableHead>
-              {buildingNames.map((name) => {
-                return <TableHead key={uuidv4()}>{name}</TableHead>;
-              })}
-            </TableRow>
-          </TableHeader>
+      <ScrollArea className="h-[400px] overflow-auto">
+        <Table className=" min-w-[1800px]">
+          <CompareTableHeader buildingNames={buildingNames} />
           <TableBody>
-            {buildingDetails.map((data) => {
-              return (
-                <TableRow key={uuidv4()}>
-                  <TableCell></TableCell>
-                </TableRow>
-              );
-            })}
+            <CompareTableData title="이미지" data={datas.images} />
+            <CompareTableData title="준공연도" data={datas.constructs} />
+            <CompareTableData title="연면적" data={datas.totalAreas} />
+            <CompareTableData title="보증금" data={datas.deposits} />
+            <CompareTableData title="임대료" data={datas.rentFees} />
+            <CompareTableData title="관리비" data={datas.maintenanceFees} />
+            <CompareTableData title="최근거래일" data={datas.transactionDates} />
+            <CompareTableData title="거래가" data={datas.transactionPrices} />
           </TableBody>
         </Table>
         <ScrollBar orientation="horizontal" />

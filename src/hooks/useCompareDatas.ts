@@ -1,19 +1,15 @@
-import type { CompareBuildingDataType } from 'types/building.type';
+import { addCommas, changeAmountFormat } from 'lib/changeFormat';
 
-type TransformdCompareBuildingDatasType = {
-  images: string[];
-  totalAreas: number[];
-  deposits: number[];
-  rentFees: number[];
-  maintenanceFees: number[];
-  transactionDates: { year: number; month: number }[];
-  transactionPrices: number[];
-};
+import type {
+  CompareBuildingDataType,
+  TransformdCompareBuildingDatasType,
+} from 'types/building.type';
 
 export const useCompareDatas = () => {
   const transformVerticalDatas = (datas: CompareBuildingDataType) => {
     const result: TransformdCompareBuildingDatasType = {
       images: [],
+      constructs: [],
       totalAreas: [],
       deposits: [],
       rentFees: [],
@@ -26,12 +22,13 @@ export const useCompareDatas = () => {
       const data = datas[i];
       if (data) {
         result.images.push(data.image);
-        result.totalAreas.push(data.totalArea);
-        result.deposits.push(data.deposit);
-        result.rentFees.push(data.rentFee);
-        result.maintenanceFees.push(data.maintenanceFee);
-        result.transactionDates.push(data.transactionDate);
-        result.transactionPrices.push(data.transactionPrice);
+        result.constructs.push(`${data.construct.year} (${data.construct.quarter})`);
+        result.totalAreas.push(addCommas(data.totalArea) + '평');
+        result.deposits.push(changeAmountFormat(data.deposit) + '/평');
+        result.rentFees.push(changeAmountFormat(data.deposit) + '/평');
+        result.maintenanceFees.push(changeAmountFormat(data.maintenanceFee) + '/평');
+        result.transactionDates.push(`${data.transactionDate.year}.${data.transactionDate.month} `);
+        result.transactionPrices.push(changeAmountFormat(data.transactionPrice));
       }
     }
 

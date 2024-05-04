@@ -1,11 +1,22 @@
 import React from 'react';
 
-import { TableHeader } from 'components/ui/table';
+import { v4 as uuidv4 } from 'uuid';
 
-const CompareTableHeader = () => {
+import { TableHead, TableHeader, TableRow } from 'components/ui/table';
+
+interface Props {
+  buildingNames: string[];
+}
+
+const CompareTableHeader = ({ buildingNames }: Props) => {
   return (
     <TableHeader>
-      <div>CompareTableHeader</div>
+      <TableRow>
+        <TableHead>비교빌딩</TableHead>
+        {buildingNames.map((name) => {
+          return <TableHead key={uuidv4()}>{name}</TableHead>;
+        })}
+      </TableRow>
     </TableHeader>
   );
 };
