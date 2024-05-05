@@ -12,6 +12,8 @@ import {
 
 import { changeChartDataFormat } from 'lib/changeFormat';
 
+import CustomToolTip from './customToolTip/CustomToolTip';
+
 import type { ChartDataItemType } from 'types/chart.type';
 
 interface Props {
@@ -34,7 +36,7 @@ const ChartContentItem = ({ data, dataKey, lineColor }: Props) => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" interval={0} className="sm:hidden md:block md:text-xs lg:text-sm" />
-          <Tooltip />
+          <Tooltip content={<CustomToolTip />} />
           <Legend />
           <Line
             type={'monotone'}
