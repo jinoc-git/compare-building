@@ -110,22 +110,24 @@
       <td>GET</td>
       <td>fetchBuildings</td>
       <td></td>
-      <td>{ 
-        id: string; 
-        address: string; 
-        buildingName: string; 
-        construct: { 
-          year: number; quarter: string;
-        }
-        totalArea:number;
-        nla: number;
-        floor: {
-          under: number;above: number;
-        }
-        deposit: number;
-        rentFee: number;
-        maintenanceFee: number;
-        vacancyRate: number;
+      <td>{ <br />
+        id: string; <br />
+        address: string; <br />
+        buildingName: string; <br />
+        construct: { <br />
+          year: number; <br />
+          quarter: string;<br />
+        }<br />
+        totalArea:number;<br />
+        nla: number;<br />
+        floor: {<br />
+          under: number;<br />
+          above: number;<br />
+        }<br />
+        deposit: number;<br />
+        rentFee: number;<br />
+        maintenanceFee: number;<br />
+        vacancyRate: number;<br />
         }</td>
       <td></td>
     </tr>
