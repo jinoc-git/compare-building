@@ -110,7 +110,23 @@
       <td>GET</td>
       <td>fetchBuildings</td>
       <td></td>
-      <td>```{ id: string; address: string; buildingName: string; construct: { year: number; quarter: string;}totalArea:number;nla: number;floor: {under: number;above: number;}deposit: number;rentFee: number;maintenanceFee: number;vacancyRate: number;}```</td>
+      <td>{ 
+        id: string; 
+        address: string; 
+        buildingName: string; 
+        construct: { 
+          year: number; quarter: string;
+        }
+        totalArea:number;
+        nla: number;
+        floor: {
+          under: number;above: number;
+        }
+        deposit: number;
+        rentFee: number;
+        maintenanceFee: number;
+        vacancyRate: number;
+        }</td>
       <td></td>
     </tr>
     <tr>
@@ -118,7 +134,7 @@
       <td>GET</td>
       <td>fetchBuildingDetailById</td>
       <td>id: string</td>
-      <td>```{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}```</td>
+      <td>{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}</td>
       <td></td>
     </tr>
     <tr>
@@ -126,7 +142,7 @@
       <td>GET</td>
       <td>fetchBuildingChartById</td>
       <td>id: string</td>
-      <td>```{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}```</td>
+      <td>{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}</td>
       <td></td>
     </tr>
   </tbody>
