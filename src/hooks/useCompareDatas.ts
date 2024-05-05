@@ -1,11 +1,16 @@
-import { addCommas, changeAmountFormat, sortYearMonth, sortYearQuater } from 'lib/changeFormat';
+import {
+  addCommas,
+  changeAmountFormat,
+  sortYearMonthForLowHigh,
+  sortYearQuaterForLowHigh,
+} from 'lib/changeFormat';
 
 import type {
   CompareBuildingDataType,
   TransformdCompareBuildingDatasType,
 } from 'types/building.type';
 
-export type LowHighValues = {
+export type LowHighValuesType = {
   constructs: { year: number; quarter: string; idx: number }[];
   totalAreas: number[];
   deposits: number[];
@@ -46,7 +51,7 @@ export const useCompareDatas = (datas: CompareBuildingDataType) => {
   };
 
   const getLowHighIdx = () => {
-    const values: LowHighValues = {
+    const values: LowHighValuesType = {
       constructs: [],
       totalAreas: [],
       deposits: [],
@@ -69,8 +74,8 @@ export const useCompareDatas = (datas: CompareBuildingDataType) => {
       values.transactionPrices.push(data.transactionPrice);
     }
 
-    const sortedConstruct = sortYearQuater(values.constructs);
-    const sortedTransactionDate = sortYearMonth(values.transactionDates);
+    const sortedConstruct = sortYearQuaterForLowHigh(values.constructs);
+    const sortedTransactionDate = sortYearMonthForLowHigh(values.transactionDates);
 
     const result = {
       low: {
