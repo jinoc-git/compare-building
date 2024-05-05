@@ -32,9 +32,9 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
     enableRowSelection: Object.keys(rowSelection).length < 10,
   });
 
-  const onClickRow = (row: TransformedBuildingType) => {
+  const onClickRow = useCallback((row: TransformedBuildingType) => {
     getBuildingDetailByRow(row);
-  };
+  }, []);
 
   const onClickAllClear = useCallback(() => {
     setRowSelection({});
