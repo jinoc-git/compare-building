@@ -16,7 +16,7 @@ const CustomToolTip = ({ active, payload, label }: TooltipProps<string | number,
           : 'text-[#CA9EBF]';
 
     return (
-      <div className="bg-white space-y-2 p-2 border text-base">
+      <div className="bg-white space-y-2 p-2 border sm:text-sm md:text-base">
         <p>{label}</p>
         <p className={fontColor}>
           {name} :
