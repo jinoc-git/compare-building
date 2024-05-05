@@ -111,23 +111,23 @@
       <td>fetchBuildings</td>
       <td></td>
       <td>{ <br />
-        id: string; <br />
-        address: string; <br />
-        buildingName: string; <br />
-        construct: { <br />
-          year: number; <br />
-          quarter: string;<br />
-        }<br />
-        totalArea:number;<br />
-        nla: number;<br />
-        floor: {<br />
-          under: number;<br />
-          above: number;<br />
-        }<br />
-        deposit: number;<br />
-        rentFee: number;<br />
-        maintenanceFee: number;<br />
-        vacancyRate: number;<br />
+        &nbsp;id: string; <br />
+        &nbsp;address: string; <br />
+        &nbsp;buildingName: string; <br />
+        &nbsp;construct: { <br />
+        &nbsp; &nbsp; year: number; <br />
+        &nbsp; &nbsp; quarter: string;<br />
+        &nbsp;}<br />
+        &nbsp;totalArea:number;<br />
+        &nbsp;nla: number;<br />
+        &nbsp;floor: {<br />
+        &nbsp; &nbsp; under: number;<br />
+        &nbsp; &nbsp; above: number;<br />
+        &nbsp;}<br />
+        &nbsp;deposit: number;<br />
+        &nbsp;rentFee: number;<br />
+        &nbsp;maintenanceFee: number;<br />
+        &nbsp;vacancyRate: number;<br />
         }</td>
       <td></td>
     </tr>
@@ -136,7 +136,35 @@
       <td>GET</td>
       <td>fetchBuildingDetailById</td>
       <td>id: string</td>
-      <td>{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}</td>
+      <td>{ <br />
+      &nbsp;id: string;<br /> 
+      &nbsp;address: string;<br />
+      &nbsp;image: string;<br />
+      &nbsp;landPurpose: string;<br />
+      &nbsp;totalArea: number;<br />
+      &nbsp;bcRat: number;<br />
+      &nbsp;floor: {<br />
+      &nbsp; &nbsp; under: number;<br />
+      &nbsp; &nbsp; above: number;<br />
+      &nbsp;}<br />
+      &nbsp;totalPark: number;<br />
+      &nbsp;construct: {<br />
+      &nbsp; &nbsp; year: number;<br />
+      &nbsp; &nbsp; quarter: string;<br />
+      &nbsp;}<br />
+      &nbsp;platArea: number;<br />
+      &nbsp;architectureArea: number;<br />
+      &nbsp;vlRat: number;<br />
+      &nbsp;mainPurpose: string;<br />
+      &nbsp;deposit: number;<br />
+      &nbsp;rentFee: number;<br />
+      &nbsp;maintenanceFee: number;<br />
+      &nbsp;transactionDate: {<br />
+      &nbsp; &nbsp; year: number;<br />
+      &nbsp; &nbsp; month: number;<br />
+      &nbsp;}<br />
+      &nbsp;transactionPrice: number;<br />
+      }</td>
       <td></td>
     </tr>
     <tr>
@@ -144,7 +172,30 @@
       <td>GET</td>
       <td>fetchBuildingChartById</td>
       <td>id: string</td>
-      <td>{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}</td>
+      <td>{<br />
+        &nbsp;id: string;<br />
+        &nbsp;rentFee: {<br />
+        &nbsp; &nbsp; date: {<br />
+        &nbsp; &nbsp; &nbsp;  year: number;<br />
+        &nbsp; &nbsp; &nbsp;  month: number;<br />
+        &nbsp; &nbsp; };<br />
+        &nbsp; &nbsp; fee: number;<br />
+        &nbsp;}[];<br />
+        &nbsp;maintenanceFee: {<br />
+        &nbsp; &nbsp; date: {<br />
+        &nbsp; &nbsp; &nbsp;  year: number;<br />
+        &nbsp; &nbsp; &nbsp;  month: number;<br />
+        &nbsp; &nbsp; };<br />
+        &nbsp; &nbsp; fee: number;<br />
+        &nbsp;}[];<br />
+        &nbsp;vacancyRate: {<br />
+        &nbsp; &nbsp; date: {<br />
+        &nbsp; &nbsp; &nbsp;  year: number;<br />
+        &nbsp; &nbsp; &nbsp;  month: number;<br />
+        &nbsp; &nbsp; };<br />
+        &nbsp; &nbsp; rate: number;<br />
+        &nbsp;}[];<br />
+        }</td>
       <td></td>
     </tr>
   </tbody>
