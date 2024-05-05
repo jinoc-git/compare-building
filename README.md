@@ -93,8 +93,47 @@
 
 ## 6. API 명세
 
-| API 명                 | 메소드 | 함수 명                 | Req          | Res                                                                                                                                                                                                                                                                                                                                                                                                           | 비고 |
+<table>
+  <thead>
+    <tr>
+      <th>API 명</th>
+      <th>메소드</th>
+      <th>함수 명</th>
+      <th>Req</th>
+      <th>Res</th>
+      <th>비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>빌딩 리스트 불러오기</td>
+      <td>GET</td>
+      <td>fetchBuildings</td>
+      <td></td>
+      <td>```{ id: string; address: string; buildingName: string; construct: { year: number; quarter: string;}totalArea:number;nla: number;floor: {under: number;above: number;}deposit: number;rentFee: number;maintenanceFee: number;vacancyRate: number;}```</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>빌딩 상세정보 불러오기</td>
+      <td>GET</td>
+      <td>fetchBuildingDetailById</td>
+      <td>id: string</td>
+      <td>```{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}```</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>빌딩 차트 불러오기</td>
+      <td>GET</td>
+      <td>fetchBuildingChartById</td>
+      <td>id: string</td>
+      <td>```{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}```</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- | API 명                 | 메소드 | 함수 명                 | Req          | Res                                                                                                                                                                                                                                                                                                                                                                                                           | 비고 |
 | ---------------------- | ------ | ----------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | 빌딩 리스트 불러오기   | GET    | fetchBuildings          |              | `{ id: string; address: string; buildingName: string; construct: { year: number; quarter: string;}totalArea:number;nla: number;floor: {under: number;above: number;}deposit: number;rentFee: number;maintenanceFee: number;vacancyRate: number;}`                                                                                                                                                             |      |
 | 빌딩 상세정보 불러오기 | GET    | fetchBuildingDetailById | `id: string` | `{ id: string;address: string;image: string;landPurpose: string;totalArea: number;bcRat: number;floor: {under: number;above: number;}totalPark: number;construct: {year: number;quarter: string;}platArea: number;architectureArea: number;vlRat: number;mainPurpose: string;deposit: number;rentFee: number;maintenanceFee: number;transactionDate: {year: number;month: number;}transactionPrice: number;}` |      |
-| 빌딩 차트 불러오기     | GET    | fetchBuildingChartById  | `id: string` | `{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}`                                                                                                                                                                                         |      |
+| 빌딩 차트 불러오기     | GET    | fetchBuildingChartById  | `id: string` | `{id: string;rentFee: {date: {year: number;month: number;};fee: number;}[];maintenanceFee: {date: {year: number;month: number;};fee: number;}[];vacancyRate: {date: {year: number;month: number;};rate: number;}[];}`                                                                                                                                                                                         |      | -->
