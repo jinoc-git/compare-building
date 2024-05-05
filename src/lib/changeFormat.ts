@@ -1,4 +1,4 @@
-import type { LowHighValues } from 'hooks/useCompareDatas';
+import type { LowHighValuesType } from 'hooks/useCompareDatas';
 import type { ChartDataItemType } from 'types/chart.type';
 
 export const addCommas = (num: number) => {
@@ -7,14 +7,15 @@ export const addCommas = (num: number) => {
 
 export const changeAmountFormat = (amount: number) => {
   const units = ['', '만', '억'];
+  let copyAmount = amount;
   let result = '';
   let unitIndex = 0;
 
-  while (amount > 0) {
-    if (amount % 10000 !== 0) {
-      result = (amount % 10000) + units[unitIndex] + ' ' + result;
+  while (copyAmount > 0) {
+    if (copyAmount % 10000 !== 0) {
+      result = (copyAmount % 10000) + units[unitIndex] + ' ' + result;
     }
-    amount = Math.floor(amount / 10000);
+    copyAmount = Math.floor(copyAmount / 10000);
     unitIndex++;
   }
 
@@ -23,14 +24,14 @@ export const changeAmountFormat = (amount: number) => {
   return result + '원';
 };
 
-export const sortYearQuater = (data: LowHighValues['constructs']) => {
+export const sortYearQuaterForLowHigh = (data: LowHighValuesType['constructs']) => {
   return data.sort((a, b) => {
     if (a.year !== b.year) return a.year - b.year;
     else return Number(a.quarter[2]) - Number(b.quarter[2]);
   });
 };
 
-export const sortYearMonth = (data: LowHighValues['transactionDates']) => {
+export const sortYearMonthForLowHigh = (data: LowHighValuesType['transactionDates']) => {
   return data.sort((a, b) => {
     if (a.year !== b.year) return a.year - b.year;
     else return a.month - b.month;
