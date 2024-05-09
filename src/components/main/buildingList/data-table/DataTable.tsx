@@ -12,6 +12,16 @@ import ButtonArea from '../buttonArea/ButtonArea';
 import type { RowSelectionState } from '@tanstack/react-table';
 import type { TransformedBuildingType } from 'types/building.type';
 
+type TableWidth = Record<number, string>;
+
+const tableWidth: TableWidth = {
+  0: 'w-[32px]',
+  6: 'w-[80px]',
+  7: 'w-[160px]',
+  8: 'w-[140px]',
+  9: 'w-[140px]',
+} as const;
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -73,20 +83,8 @@ const DataTable = ({ columns, data }: DataTableProps<TransformedBuildingType, an
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header, idx) => {
-                  const className =
-                    idx === 0
-                      ? 'w-[32px]'
-                      : idx === 6
-                        ? 'w-[80px]'
-                        : idx === 7
-                          ? 'w-[160px]'
-                          : idx === 8
-                            ? 'w-[140px]'
-                            : idx === 9
-                              ? 'w-[140px]'
-                              : '';
                   return (
-                    <TableHead key={header.id} className={className}>
+                    <TableHead key={header.id} className={tableWidth[idx] || ''}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
