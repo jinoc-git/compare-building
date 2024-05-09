@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from 'components/ui/button';
+import { useToast } from 'components/ui/use-toast';
 import useCompareFetchQuery from 'hooks/useCompareFetchQuery';
 import { useCompareStoreState } from 'store/compareStore';
 
@@ -14,9 +15,16 @@ const ButtonArea = ({ onClickAllClear }: Props) => {
 
   const state = useCompareStoreState();
   const { makeSearchParams } = useCompareFetchQuery();
+  const { toast } = useToast();
 
   const onClickCompareBtn = () => {
-    if (state.length < 2) return;
+    if (state.length < 2) {
+      toast({
+        variant: 'destructive',
+        description: '빌딩을 2개 이상 선택해 주세요.',
+      });
+      return;
+    }
 
     navigate(`/compare?${makeSearchParams(state)}`);
   };

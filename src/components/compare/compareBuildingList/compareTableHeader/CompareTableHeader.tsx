@@ -12,10 +12,12 @@ const CompareTableHeader = ({ buildingNames }: Props) => {
   return (
     <TableHeader>
       <TableRow>
-        <TableHead className="sticky left-0 bg-[#F3F4F6] shadow-tableLeft">비교빌딩</TableHead>
+        <TableHead className="sticky left-0 bg-[#F3F4F6] shadow-tableLeft min-w-[180px]">
+          비교빌딩
+        </TableHead>
         {buildingNames.map((name) => {
           return (
-            <TableHead key={uuidv4()} className=" text-center">
+            <TableHead key={uuidv4()} className=" text-center min-w-[180px]">
               {name}
             </TableHead>
           );
