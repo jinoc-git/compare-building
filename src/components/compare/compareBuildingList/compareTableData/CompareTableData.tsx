@@ -43,11 +43,11 @@ const CompareTableData = ({ title, data, lowIdx, highIdx }: Props) => {
           );
         }
 
-        const fontColor =
-          idx === lowIdx ? 'text-[#F49898]' : idx === highIdx ? 'text-[#8870ED]' : '';
+        const lowTextColor = idx === lowIdx ? 'text-[#F49898]' : '';
+        const highTextColor = idx === highIdx ? 'text-[#8870ED]' : '';
 
         return (
-          <TableCell key={uuidv4()} className={fontColor}>
+          <TableCell key={uuidv4()} className={`${lowTextColor} ${highTextColor}`}>
             {item}
           </TableCell>
         );
