@@ -16,6 +16,19 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    screens: {
+      sm: '320px',
+      md: '560px',
+      lg: '1100px',
+    },
+    fontSize: {
+      xxs: ['10px', '12px'],
+      xs: ['12px', '16px'],
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
@@ -56,6 +69,12 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        tableTop:
+          '0 -6px 6px -1px rgba(229, 232, 237, 1), 0 2px 1px 0 rgba(229, 232, 237, 1) inset',
+        tableLeft:
+          '-10px 0 10px -1px rgba(229, 232, 237, 1), 2px 0 1px 0 rgba(229, 232, 237, 1) inset',
       },
       keyframes: {
         'accordion-down': {

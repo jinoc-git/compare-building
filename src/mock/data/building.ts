@@ -55,11 +55,7 @@ const generateMockBuildingDetail = (id: string) => {
     platArea: faker.number.int({ min: 1000, max: 50000000 }), // 대지면적
     architectureArea: faker.number.int({ min: 1000, max: 50000000 }), // 건축면적
     vlRat: faker.number.float({ min: 20, max: 100 }), // 용적율
-    mainPurpose: faker.helpers.arrayElement([
-      '업무시설',
-      '생활시설',
-      '공공업무시설',
-    ]),
+    mainPurpose: faker.helpers.arrayElement(['업무시설', '생활시설', '공공업무시설']),
     deposit: faker.number.int({ min: 1000000, max: 100000000 }), // 보증금
     rentFee: faker.number.int({ min: 1000000, max: 50000000 }), // 임대료
     maintenanceFee: faker.number.int({ min: 1000000, max: 50000000 }), // 관리비
