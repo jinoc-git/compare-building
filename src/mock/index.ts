@@ -2,9 +2,11 @@ import { Server } from 'miragejs';
 
 import responses from './responses';
 
+const environment = process.env.NODE_ENV === 'development' ? 'development' : 'production';
+
 function enableMirageMock() {
   return new Server({
-    environment: 'development',
+    environment,
     routes() {
       this.namespace = '';
       this.timing = 500;
