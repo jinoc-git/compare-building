@@ -14,15 +14,15 @@
 
 ## 1. 미리 보기
 
-![빌딩 목록 페이지](https://github.com/jinoc-git/dulleo-bomi/assets/132889294/29ee6a76-4485-465f-b5b7-3f7d64bf00e0)
+![빌딩 목록 페이지](https://github.com/jinoc-git/simple-auth-page/assets/132889294/8993cb53-1143-4b24-88c2-ea8765ceb9b3)
 
 <br/>
 
-![차트](https://github.com/jinoc-git/dulleo-bomi/assets/132889294/0d9334be-f394-40ec-9f76-02b0562358e7)
+![차트](https://github.com/jinoc-git/simple-auth-page/assets/132889294/a8219e9d-0724-451c-b154-2114be162d97)
 
 <br/>
 
-![빌딩 비교 페이지](https://github.com/jinoc-git/dulleo-bomi/assets/132889294/eae32f9e-a066-4962-b69d-a9e6b10146d5)
+![빌딩 비교 페이지](https://github.com/jinoc-git/simple-auth-page/assets/132889294/dbc9741a-7841-427e-94ca-e61c05095e7c)
 
 ## 2. 기술 스택
 
