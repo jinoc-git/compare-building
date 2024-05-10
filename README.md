@@ -1,9 +1,7 @@
 # 프로젝트
 
-#### RSQUARE Front-end 채용 과제
-
 여러 빌딩의 정보들을 보고, 비교할 수 있는 서비스 <br />
-배포 링크 : [https://rsquare-test.vercel.app/](https://rsquare-test.vercel.app/)
+배포 링크 : [https://compare-building.vercel.app/](https://compare-building.vercel.app/)
 
 ## 목차
 
@@ -53,6 +51,7 @@
 ### 부가 기능
 
 - 모든 선택 해제 : `/` 페이지의 빌딩 리스트에서 선택한 빌딩들을 한 번에 선택 해제할 수 있다.
+- 선택 빌딩 없음 안내 : `/` 페이지의 빌딩 리스트에서 선택한 빌딩없이 비교하기 버튼 클릭 시 토스트 모달로 안내.
 - 테이블 스크롤 : 모든 table에서 사용 가능하다.
 - 빌딩 비교 시 최소, 최대 값 표시 : `/compare` 페이지에서 선택한 빌딩들의 정보들을 비교하여 최소값은 빨간색, 최댓값은 보라색으로 표시.
 - 선택 값 유지 : `/compare` 페이지에서 `/` 페이지로 이동했을 때 이전에 선택했던 빌딩들이 유지된다.
@@ -71,16 +70,23 @@
 ┃ ┗ 📜App.tsx<br />
 ┣ 📂components<br />
 ┃ ┣ 📂common<br />
+┃ ┃ ┗ 📂header<br />
+┃ ┃ ┗ 📂layouts<br />
 ┃ ┣ 📂compare<br />
 ┃ ┃ ┗ 📂compareBuildingList<br />
+┃ ┃ ┃ ┗ 📂...<br />
 ┃ ┣ 📂error<br />
 ┃ ┣ 📂main<br />
 ┃ ┃ ┣ 📂buildingInfo<br />
+┃ ┃ ┃ ┗ 📂...<br />
 ┃ ┃ ┗ 📂buildingList<br />
+┃ ┃ ┃ ┗ 📂...<br />
 ┃ ┣ 📂skeleton<br />
 ┃ ┃ ┣ 📂common<br />
+┃ ┃ ┃ ┗ 📂...<br />
 ┃ ┃ ┣ 📂compare<br />
 ┃ ┃ ┗ 📂main<br />
+┃ ┃ ┃ ┗ 📂...<br />
 ┃ ┗ 📂ui<br />
 ┣ 📂hooks<br />
 ┣ 📂lib<br />
